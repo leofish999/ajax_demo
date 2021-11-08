@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div id="messages">
+        {% for note in notes%}
+            <p style="background-color:#5BE6FF">{{note.title}}:{{note.comment}}</p>
+        {% endfor %}
+    </div>
+    <p>title</p>
+    <input type="text" id="title">
+    <p>comment</p>
+    <input type="text" id="comment">
+    <button>add</button>
+    <script>
+        $('button').click(function(){
+            title=$('#title').val()
+            comment=$('#comment').val()
+            data2={title,comment}
+            $.ajax({url: './ajax_comment',method: "POST",
+                    data: data2,
+                    cache: false,
+                    success: function(result) {  
+                        if(result.msg=='success'){
+                            $item=$('<p style="background-color:#5BE6FF">'+title+':'+$('#comment').val()+'</p>')
+                            $('#messages').append($item)
+                        }
+                        else
+                            alert('fail')
+                        
+                },
+                error:function(){
+                    alert('fail')
+
+                }
+                })
+
+
+
+            
+        })
+        
+    </script>
+</body>
+</html>
