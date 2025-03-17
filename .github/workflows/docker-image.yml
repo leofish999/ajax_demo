@@ -14,7 +14,7 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - name: Build the Docker image
-      run: docker build --tag leo999/web:${{ github.run_number }} .
+      run: docker build ./api/ --tag leo999/web:${{ github.run_number }}
     - name: Push docker
       run: |
         docker login -u leo999 -p ${{ secrets.DOCKER_HUB_TOKEN }}
