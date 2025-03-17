@@ -36,7 +36,7 @@
                     cache: false,
                     success: function(result) {  
                         if(result.msg=='success'){
-                            $item=$('<p style="background-color:#AF38EB; color:white; padding: 5px;border-radius: 10px;">'+title+':<br>'+$('#comment').val()+'</p>')
+                            $item=$('<p style="background-color:black; color:white; padding: 5px;border-radius: 10px;">'+title+':<br>'+$('#comment').val()+'</p>')
                             $('#messages').append($item)
                             $('input').val('')
                         }
