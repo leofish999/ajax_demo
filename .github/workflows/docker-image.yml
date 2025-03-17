@@ -16,8 +16,8 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - name: Build the Docker image
-      run: docker build --tag leo999/web:${{ LEO999_VERSION }} .
+      run: docker build --tag leo999/web:${{ env.LEO999_VERSION }} .
     - name: Push docker
       run: |
         docker login -u leo999 -p ${{ secrets.DOCKER_HUB_TOKEN }}
-        docker push leo999/web:${{ LEO999_VERSION }}
+        docker push leo999/web:${{ env.LEO999_VERSION }}
