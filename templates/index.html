@@ -13,7 +13,7 @@
     <div class="container">
         <div id="messages" class="card" style="margin-top: 20px; margin-bottom: 20px; padding: 10px;">
             {% for note in notes%}
-                <p style="background-color:#748e30; color:white; padding: 5px;border-radius: 10px;">{{note.title}}:<br> {{note.comment}}</p>
+                <p style="background-color:#8e3051; color:white; padding: 5px;border-radius: 10px;">{{note.title}}:<br> {{note.comment}}</p>
             {% endfor %}
         </div>
     </div>
@@ -36,7 +36,7 @@
                     cache: false,
                     success: function(result) {  
                         if(result.msg=='success'){
-                            $item=$('<p style="background-color:#748e30; color:white; padding: 5px;border-radius: 10px;">'+title+':<br>'+$('#comment').val()+'</p>')
+                            $item=$('<p style="background-color:#8e3051; color:white; padding: 5px;border-radius: 10px;">'+title+':<br>'+$('#comment').val()+'</p>')
                             $('#messages').append($item)
                             $('input').val('')
                         }
