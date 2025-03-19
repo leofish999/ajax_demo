@@ -19,3 +19,5 @@ jobs:
       run: |
         docker login -u leo999 -p ${{ secrets.DOCKER_HUB_TOKEN }}
         docker push leo999/web:${{ github.run_number }}
+        docker tag leo999/web:${{ github.run_number }} leo999/web:latest
+        docker push leo999/web:latest
